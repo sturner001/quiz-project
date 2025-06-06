@@ -6,7 +6,10 @@ export default function ({ timeout, onTimeout }) {
     useEffect(() => {
         console.log('SETTING TIMEOUT');
         let _timeout = setTimeout(onTimeout, timeout);
-        //clearTimeout(_timeout);
+
+        return () => {
+            clearTimeout(_timeout);
+        };
     }, [onTimeout, timeout]);
 
     useEffect(() => {
@@ -16,7 +19,9 @@ export default function ({ timeout, onTimeout }) {
             setRemainingTime(prevRemainingTime => prevRemainingTime - 100);
         }, 100);
 
-        //clearInterval(interval);
+        return () => {
+            clearInterval(interval);
+        };
     }, []);
 
     return (
