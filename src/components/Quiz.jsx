@@ -72,6 +72,7 @@ export default function Quiz() {
                         }
 
                         return <li key={answer} className="answer">
+                            <div>activeQuestionIndex {activeQuestionIndex}</div>
                             <button
                                 onClick={() => handleSelectAnswer(answer)}
                                 className={cssClass}
