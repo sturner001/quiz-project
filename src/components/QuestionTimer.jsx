@@ -5,10 +5,10 @@ export default function ({ timeout, onTimeout }) {
 
     useEffect(() => {
         console.log('SETTING TIMEOUT');
-        let _timeout = setTimeout(onTimeout, timeout);
+        let timer = setTimeout(onTimeout, timeout);
 
         return () => {
-            clearTimeout(_timeout);
+            clearTimeout(timer);
         };
     }, [onTimeout, timeout]);
 
